@@ -8,5 +8,20 @@
   </head>
   <body>
     <h1>More Info</h1>
+    <a href="/travel">Back</a>
+    <div class="locale">
+      <h3><%=post.title%></h3>
+      <br />
+      <img src="<%=post.image%>" />
+      <p><%=post.description%></p>
+      <br />
+      <p>Written by: <%=post.author%></p>
+      <br />
+    </div>
+    <br />
+    <br />
+    <nav>
+      <a href="/travel/<%=post.id%>/edit">Edit this Post</a>
+    </nav>
   </body>
 </html>

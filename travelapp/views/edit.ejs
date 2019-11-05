@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Edit</title>
+  </head>
+  <body>
+    <h1>Edit Post</h1>
+    <form action="/travel/<%=post.id%>?_method=PUT" method="POST">
+      Title:
+      <input type="text" name="title" id="title" value="<%=post.title%>" />
+      Author:
+      <input type="text" name="author" id="author" value="<%=post.author%>" />
+      Image:
+      <input type="text" name="image" id="image" value="<%=post.image%>" />
+      Description:
+      <textarea
+        type="text"
+        name="description"
+        id="description"
+        value="<%=post.description%>"
+      ></textarea>
+      <input type="submit" name="submit" value="Edit Post" />
+    </form>
+    <nav>
+      <form action="/travel/<%=post.id%>/edit/?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE" />
+      </form>
+    </nav>
+  </body>
+</html>

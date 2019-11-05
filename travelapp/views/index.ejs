@@ -8,5 +8,17 @@
   </head>
   <body>
     <h1>See These Locations</h1>
+    <div class="container">
+      <% post.forEach((post, id)=> { %>
+
+      <h2><a href="/travel/<%=post.id%>"><%=post.title%></a></h2>
+      <a href="/travel/<%=post.id%>"><img src="<%=post.image%>"/></a>
+
+      <br />
+      <% }) %>
+    </div>
+    <nav>
+      <a href="/travel/new">Create New Post</a>
+    </nav>
   </body>
 </html>
