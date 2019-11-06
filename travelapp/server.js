@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
-const Post = require("./models/posts.js");
-const newPosts = require("./models/seed.js");
+const session = require("express-session");
+
+// const Post = require("./models/posts.js");
+// const newPosts = require("./models/seed.js");
 
 // DB SETUP
 mongoose.connect("mongodb://localhost:27017/travel", {
@@ -13,10 +15,26 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
 
+// Controllers
+const travelController = require("./controllers/travel.js");
+const usersController = require("./controllers/users.js");
+const sessionsController = require("./controllers/sessions.js");
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use(
+  session({
+    secret: "membersonly",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use("/travel", travelController);
+app.use("/users", usersController);
+app.use("/sessions", sessionsController);
+
 ///Added seed data
 // Post.create(newPosts, (error, data) => {
 //   if (error) {
@@ -31,72 +49,72 @@ app.get("/", (req, res) => {
   res.send("welcome");
 });
 
-//New
-app.get("/travel/new", (req, res) => {
-  res.render("new.ejs");
-});
+// //New
+// app.get("/travel/new", (req, res) => {
+//   res.render("new.ejs");
+// });
 
-//Post
-app.post("/travel/", (req, res) => {
-  Post.create(req.body, (error, createdPost) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.redirect("/travel");
-    }
-  });
-});
+// //Post
+// app.post("/travel/", (req, res) => {
+//   Post.create(req.body, (error, createdPost) => {
+//     if (error) {
+//       res.send(error);
+//     } else {
+//       res.redirect("/travel");
+//     }
+//   });
+// });
 
-//Index
-app.get("/travel", (req, res) => {
-  Post.find({}, (error, allPosts) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.render("index.ejs", { post: allPosts });
-    }
-  });
-});
+// //Index
+// app.get("/travel", (req, res) => {
+//   Post.find({}, (error, allPosts) => {
+//     if (error) {
+//       res.send(error);
+//     } else {
+//       res.render("index.ejs", { post: allPosts });
+//     }
+//   });
+// });
 
-//Show
-app.get("/travel/:id", (req, res) => {
-  Post.findById(req.params.id, (error, foundPost) => {
-    res.render("show.ejs", { post: foundPost });
-  });
-});
+// //Show
+// app.get("/travel/:id", (req, res) => {
+//   Post.findById(req.params.id, (error, foundPost) => {
+//     res.render("show.ejs", { post: foundPost });
+//   });
+// });
 
-//Delete
-app.delete("/travel/:id/edit", (req, res) => {
-  Post.findByIdAndDelete(req.params.id, (error, deletePost) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.redirect("/travel");
-    }
-  });
-});
+// //Delete
+// app.delete("/travel/:id/edit", (req, res) => {
+//   Post.findByIdAndDelete(req.params.id, (error, deletePost) => {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       res.redirect("/travel");
+//     }
+//   });
+// });
 
-//Edit
-app.get("/travel/:id/edit", (req, res) => {
-  Post.findById(req.params.id, (error, foundPost) => {
-    res.render("edit.ejs", { post: foundPost });
-  });
-});
+// //Edit
+// app.get("/travel/:id/edit", (req, res) => {
+//   Post.findById(req.params.id, (error, foundPost) => {
+//     res.render("edit.ejs", { post: foundPost });
+//   });
+// });
 
-//Update
-app.put("/travel/:id", (req, res) => {
-  Post.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (error, updatedPost) => {
-      if (error) {
-        console.log(error);
-      } else {
-        res.redirect("/travel");
-      }
-    }
-  );
-});
+// //Update
+// app.put("/travel/:id", (req, res) => {
+//   Post.findByIdAndUpdate(
+//     req.params.id,
+//     req.body,
+//     { new: true },
+//     (error, updatedPost) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         res.redirect("/travel");
+//       }
+//     }
+//   );
+// });
 
 app.listen(3000, (req, res) => console.log("listening on PORT 3000!"));
