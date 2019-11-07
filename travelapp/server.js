@@ -46,7 +46,7 @@ app.use("/sessions", sessionsController);
 // Post.collection.drop();
 
 app.get("/", (req, res) => {
-  res.send("welcome");
+  res.send("Welcome");
 });
 
 // //New

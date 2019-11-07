@@ -1,11 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const session = require("express-session");
 
+// Models
 const Post = require("../models/posts.js");
+// const User = require("../models/users.js");
 
 // New
 router.get("/new", (req, res) => {
-  res.render("new.ejs");
+  res.render("new.ejs", {
+    currentUser: req.session.currentUser
+  });
 });
 
 //Post
@@ -25,7 +30,9 @@ router.get("/", (req, res) => {
     if (error) {
       res.send(error);
     } else {
-      res.render("index.ejs", { post: allPosts });
+      res.render("index.ejs", {
+        post: allPosts
+      });
     }
   });
 });
@@ -33,7 +40,9 @@ router.get("/", (req, res) => {
 //Show
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
-    res.render("show.ejs", { post: foundPost });
+    res.render("show.ejs", {
+      post: foundPost
+    });
   });
 });
 
@@ -51,7 +60,10 @@ router.delete("/:id/edit", (req, res) => {
 //Edit
 router.get("/:id/edit", (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
-    res.render("edit.ejs", { post: foundPost });
+    res.render("edit.ejs", {
+      post: foundPost,
+      currentUser: req.session.currentUser
+    });
   });
 });
 
