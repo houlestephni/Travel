@@ -31,7 +31,8 @@ router.get("/", (req, res) => {
       res.send(error);
     } else {
       res.render("index.ejs", {
-        post: allPosts
+        post: allPosts,
+        currentUser: req.session.currentUser
       });
     }
   });
@@ -41,7 +42,8 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
     res.render("show.ejs", {
-      post: foundPost
+      post: foundPost,
+      currentUser: req.session.currentUser
     });
   });
 });

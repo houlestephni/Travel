@@ -17,6 +17,12 @@
     <nav>
       <a href="/sessions/new">Log In</a>
       <a href="/users/new">Register</a>
+      <% if(currentUser) { %>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Logout" />
+      </form>
+      <a href="/travel/new">Create New Post</a>
+      <% } %>
     </nav>
     <h1>See These Locations</h1>
     <div class="container">

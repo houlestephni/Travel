@@ -28,7 +28,9 @@
     <br />
     <br />
     <nav>
+      <% if (currentUser) {%>
       <a href="/travel/<%=post.id%>/edit">Edit this Post</a>
+      <%}%>
     </nav>
   </body>
 </html>
