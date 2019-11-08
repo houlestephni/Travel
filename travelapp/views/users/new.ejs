@@ -3,14 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <title>New User</title>
+    <% include ../partials/head%>
   </head>
 
   <body>
-    <h1>Create User</h1>
+      <nav>
+          <% include ../partials/nav %>
+        </nav>
+        <br />
+    
+
+    <div class="container">
+        <h2>Create User</h2>
+        <div class="row">
+            <div class="col">
+    
     <form action="/users" method="POST">
-      <input type="text" name="username" placeholder="username" />
-      <input type="password" name="password" />
-      <input type="submit" value="Create User" />
+      <div class="form-group col-md-6">
+      <label for="username">Username</label>
+    
+      <input type="text" name="username" placeholder="username" class="form-control"/>
+    </div>
+
+     <div class="form-group col-md-6">
+      <label for="pwd">Password</label>
+       
+      <input type="password" name="pwd" class="form-control"/>
+    </div>
+  
+      <input class="btn btn-outline-dark" type="submit" value="Create User" />
     </form>
+
+    </div>
+    </div>
+  </div>
+</div>
+<footer>
+    <% include ../partials/footer %>
+  </footer>
   </body>
 </html>

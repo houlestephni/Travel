@@ -4,47 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/main.css" />
-    <title>New</title>
+    <nav>
+      <% include ./partials/head %>
+    </nav>
+    <title>New Post</title>
   </head>
   <body>
-    <h1>New Post</h1>
-    <form action="/travel" method="POST">
-      <div class="form-group">
-        <h3>Title</h3>
-        <input type="text" name="title" id="title" placeholder="title" />
-      </div>
-      <h4>Author</h4>
-      <div class="form-group">
-        <input type="text" name="author" id="author" placeholder="author" />
-      </div>
+    <nav>
+      <% include ./partials/nav %>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>New Post</h2>
+          <form action="/travel" method="POST">
+            <div class="form-group col-md-6">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="title"
+                class="form-control"
+              />
+            </div>
+            <label for="author">Author</label>
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                name="author"
+                id="author"
+                placeholder="author"
+                class="form-control"
+              />
+            </div>
 
-      <h4>Image</h4>
-      <div class="form-group">
-        <input type="text" name="image" id="image" placeholder="url" />
+            <label for="image">Image</label>
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                name="image"
+                id="image"
+                placeholder="url"
+                class="form-control"
+              />
+            </div>
+            <label for="description">Post Body</label>
+            <div class="form-group col-md-12">
+              <textarea
+                type="text"
+                class="form-control"
+                rows="5"
+                name="description"
+                id="description"
+              ></textarea>
+            </div>
+            <div class="form-group col-md-9">
+              <input
+                class="btn btn-outline-dark"
+                type="submit"
+                name="submit"
+                value="Create New Post"
+              />
+            </div>
+          </form>
+        </div>
       </div>
-      <h4>Description</h4>
-      <div class="form-group">
-        <textarea
-          type="text"
-          class="form-control"
-          rows="5"
-          name="description"
-          id="description"
-        ></textarea>
-      </div>
-      <input
-        class="btn btn-outline-primary"
-        type="submit"
-        name="submit"
-        value="Create New Post"
-      />
-    </form>
+    </div>
   </body>
+  <br />
+  <footer>
+    <% include ./partials/footer %>
+  </footer>
 </html>

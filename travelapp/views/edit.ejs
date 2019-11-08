@@ -4,43 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/main.css" />
+    <% include ./partials/head%>
     <title>Edit</title>
   </head>
   <body>
-    <h1>Edit Post</h1>
-    <form action="/travel/<%=post.id%>?_method=PUT" method="POST">
-      Title:
-      <input type="text" name="title" id="title" value="<%=post.title%>" />
-      Author:
-      <input type="text" name="author" id="author" value="<%=post.author%>" />
-      Image:
-      <input type="text" name="image" id="image" value="<%=post.image%>" />
-      Description:
-      <textarea
-        type="text"
-        name="description"
-        id="description"
-        value="<%=post.description%>"
-      ></textarea>
-      <input
-        class="btn btn-outline-primary"
-        type="submit"
-        name="submit"
-        value="Edit Post"
-      />
-    </form>
     <nav>
-      <a class="btn btn-outline-primary" href="/travel">Cancel</a>
-      <form action="/travel/<%=post.id%>/edit/?_method=DELETE" method="POST">
-        <input class="btn btn-danger" type="submit" value="DELETE" />
-      </form>
+      <% include ./partials/nav %>
     </nav>
+    <br />
+    <div class="container">
+      <main>
+        <div class="row">
+          <div class="col">
+            <h2>Edit Post</h2>
+            <form action="/travel/<%=post.id%>?_method=PUT" method="POST">
+              <label for="title">Title</label>
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  value="<%=post.title%>"
+                  class="form-control"
+                />
+              </div>
+              <label for="author">Author</label>
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  value="<%=post.author%>"
+                  class="form-control"
+                />
+              </div>
+              <label for="image">Image</label>
+              <div class="form-group col-md-6">
+                <input
+                  type="text"
+                  name="image"
+                  id="image"
+                  value="<%=post.image%>"
+                  class="form-control"
+                />
+              </div>
+              <label for="description">Description</label>
+
+              <div class="form-group col-md-12">
+                <textarea
+                  type="text"
+                  name="description"
+                  id="description"
+                  value="<%=post.description%>"
+                  class="form-control"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="form-group col-md-6">
+                <input
+                  class="btn btn-outline-dark"
+                  type="submit"
+                  name="submit"
+                  value="Edit Post"
+                  class="form-control"
+                />
+              
+              <a class="btn btn-outline-dark" href="/travel">Cancel</a>
+            </form>
+          </div>
+          
+              <form
+                action="/travel/<%=post.id%>/edit/?_method=DELETE"
+                method="POST"
+              >
+                <br />
+                <br />
+                <input class="btn btn-danger" type="submit" value="DELETE" />
+              </form>
+
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
