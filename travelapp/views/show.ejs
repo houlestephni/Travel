@@ -10,12 +10,22 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/main.css" />
     <title>Show</title>
   </head>
   <body>
+      <nav>
+          <% include ./partials/nav %>
+        </nav>
     <h1>More Info</h1>
-    <a class="btn btn-outline-primary" href="/travel">Back</a>
+    
+
+    <a class="btn " href="/travel"><span class="oi oi-arrow-thick-left"></span> </a>
+
     <div class="locale">
       <h3><%=post.title%></h3>
       <br />

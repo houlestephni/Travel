@@ -10,36 +10,38 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/main.css" />
     <title>Index</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-default">
-        <a class="btn btn-outline-primary" href="/sessions/new">Log In</a>
-        <!-- <a class="btn btn-outline-primary" href="/users/new">Register</a> -->
-        <% if(currentUser) { %>
-        <form action="/sessions?_method=DELETE" method="POST">
-          <input class="btn btn-outline-primary" type="submit" value="Logout" />
-        </form>
-        <a class="btn btn-outline-primary" href="/travel/new"
-          >Create New Post</a
-        >
-        <% } %>
+    <div class="container-fluid">
+      <nav>
+        <% include ./partials/nav %>
       </nav>
       <div class="jumbotron">
-        <h4>See the World</h4>
-        <p>Where will your next journey take you?</p>
+        <h4 class="display-4">See the World</h4>
+        <p class="lead">Where will your next journey take you?</p>
       </div>
       <h1>Trending Destinations</h1>
+      <div class="row">
+        <% post.forEach((post, id)=> { %>
 
-      <% post.forEach((post, id)=> { %>
+        <div class="col s6 m4 l3">
+          <h2><a href="/travel/<%=post.id%>"><%=post.title%></a></h2>
+          <a href="/travel/<%=post.id%>"
+            ><img class="img-fluid img-thumbnail" src="<%=post.image%>"
+          /></a>
 
-      <h2><a href="/travel/<%=post.id%>"><%=post.title%></a></h2>
-      <a href="/travel/<%=post.id%>"><img src="<%=post.image%>"/></a>
-
-      <br />
-      <% }) %>
+          <% }) %>
+        </div>
+      </div>
+      <footer>
+        <% include ./partials/footer %>
+      </footer>
     </div>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+  <div class="container-fluid">
+    <a href="/"
+      ><span class="oi oi-globe" title="globe" aria-hidden="true"></span
+    ></a>
+
+    <a class="btn btn-outline-dark" href="/sessions/new">Log In</a>
+    <!-- <a class="btn btn-outline-primary" href="/users/new">Register</a> -->
+    <% if(currentUser) { %>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input class="btn btn-outline-dark" type="submit" value="Logout" />
+    </form>
+    <a class="btn btn-outline-dark" href="/travel/new"
+      ><span class="oi oi-plus"></span> New Post</a
+    >
+    <% } %>
+  </div>
+</nav>
