@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1>More Info</h1>
-    <a href="/travel">Back</a>
+    <a class="btn btn-outline-primary" href="/travel">Back</a>
     <div class="locale">
       <h3><%=post.title%></h3>
       <br />
@@ -29,7 +29,9 @@
     <br />
     <nav>
       <% if (currentUser) {%>
-      <a href="/travel/<%=post.id%>/edit">Edit this Post</a>
+      <a class="btn btn-outline-primary"
+       href="/travel/<%=post.id%>/edit">Edit this Post</a>
+      </button>
       <%}%>
     </nav>
   </body>

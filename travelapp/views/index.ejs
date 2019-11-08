@@ -14,18 +14,25 @@
     <title>Index</title>
   </head>
   <body>
-    <nav>
-      <a href="/sessions/new">Log In</a>
-      <a href="/users/new">Register</a>
-      <% if(currentUser) { %>
-      <form action="/sessions?_method=DELETE" method="POST">
-        <input type="submit" value="Logout" />
-      </form>
-      <a href="/travel/new">Create New Post</a>
-      <% } %>
-    </nav>
-    <h1>See These Locations</h1>
     <div class="container">
+      <nav class="navbar navbar-default">
+        <a class="btn btn-outline-primary" href="/sessions/new">Log In</a>
+        <!-- <a class="btn btn-outline-primary" href="/users/new">Register</a> -->
+        <% if(currentUser) { %>
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input class="btn btn-outline-primary" type="submit" value="Logout" />
+        </form>
+        <a class="btn btn-outline-primary" href="/travel/new"
+          >Create New Post</a
+        >
+        <% } %>
+      </nav>
+      <div class="jumbotron">
+        <h4>See the World</h4>
+        <p>Where will your next journey take you?</p>
+      </div>
+      <h1>Trending Destinations</h1>
+
       <% post.forEach((post, id)=> { %>
 
       <h2><a href="/travel/<%=post.id%>"><%=post.title%></a></h2>

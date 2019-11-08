@@ -16,15 +16,35 @@
   <body>
     <h1>New Post</h1>
     <form action="/travel" method="POST">
-      Title:
-      <input type="text" name="title" id="title" placeholder="Post Title" />
-      Author:
-      <input type="text" name="author" id="author" placeholder="author" />
-      Image:
-      <input type="text" name="image" id="image" placeholder="url" />
-      Description:
-      <textarea type="text" name="description" id="description"></textarea>
-      <input type="submit" name="submit" value="Create New Post" />
+      <div class="form-group">
+        <h3>Title</h3>
+        <input type="text" name="title" id="title" placeholder="title" />
+      </div>
+      <h4>Author</h4>
+      <div class="form-group">
+        <input type="text" name="author" id="author" placeholder="author" />
+      </div>
+
+      <h4>Image</h4>
+      <div class="form-group">
+        <input type="text" name="image" id="image" placeholder="url" />
+      </div>
+      <h4>Description</h4>
+      <div class="form-group">
+        <textarea
+          type="text"
+          class="form-control"
+          rows="5"
+          name="description"
+          id="description"
+        ></textarea>
+      </div>
+      <input
+        class="btn btn-outline-primary"
+        type="submit"
+        name="submit"
+        value="Create New Post"
+      />
     </form>
   </body>
 </html>
