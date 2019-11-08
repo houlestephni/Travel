@@ -1,18 +1,43 @@
-<nav class="navbar sticky-top navbar-light bg-light">
-  <div class="container-fluid">
-    <a href="/"
-      ><span class="oi oi-globe" title="globe" aria-hidden="true"></span
-    ></a>
+<nav class="navbar nav-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"
+    ><span class="oi oi-globe" aria-hidden="true"></span
+  ></a>
 
-    <a class="btn btn-outline-dark" href="/sessions/new">Log In</a>
-    <!-- <a class="btn btn-outline-primary" href="/users/new">Register</a> -->
-    <% if(currentUser) { %>
-    <form action="/sessions?_method=DELETE" method="POST">
-      <input class="btn btn-outline-dark" type="submit" value="Logout" />
-    </form>
-    <a class="btn btn-outline-dark" href="/travel/new"
-      ><span class="oi oi-plus"></span> New Post</a
-    >
-    <% } %>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="oi oi-menu"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"
+          >Home<span class="sr-only">(current)</span></a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/new">Log In</a>
+      </li>
+      <% if(currentUser) { %>
+      <li>
+        <a class="nav-link" href="/travel/new"
+          ><span class="oi oi-plus"></span> New Post</a
+        >
+      </li>
+      <li>
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input class="btn btn-outline-dark" type="submit" value="Logout" />
+        </form>
+        <% } %>
+      </li>
+    </ul>
   </div>
 </nav>
