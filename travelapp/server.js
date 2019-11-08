@@ -3,12 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const session = require("express-session");
-
+const PORT = process.env.PORT || 3000;
 // const Post = require("./models/posts.js");
 // const newPosts = require("./models/seed.js");
-
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/travel";
 // DB SETUP
-mongoose.connect("mongodb://localhost:27017/travel", {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true
 });
 mongoose.connection.once("open", () => {
@@ -117,4 +118,4 @@ app.get("/", (req, res) => {
 //   );
 // });
 
-app.listen(3000, (req, res) => console.log("listening on PORT 3000!"));
+app.listen(PORT, (req, res) => console.log(`listening on PORT ${PORT}!`));
