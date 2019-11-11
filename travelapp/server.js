@@ -43,15 +43,15 @@ const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/travel";
 // DB SETUP
 mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true
-  // useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
 
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.ejs", { currentUser: req.session.currentUser });
 });
 
 // //New

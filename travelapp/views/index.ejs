@@ -8,30 +8,46 @@
     <title>Index</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <nav>
-        <% include ./partials/nav %>
-      </nav>
-      <div class="jumbotron">
-        <h4 class="display-4">See the World</h4>
+    <nav>
+      <% include ./partials/nav %>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h4 class="display-3">See the World</h4>
         <p class="lead">Where will your next journey take you?</p>
       </div>
-      <h1>Trending Destinations</h1>
-      <div class="row">
-        <% post.forEach((post, id)=> { %>
+    </div>
+    <div class="container-fluid text-center">
+      <h1 class="display-4">Trending Destinations</h1>
+      <br />
+      <br />
+      <div class="card-wrapper">
+        <div class="card-deck">
+          <div class="card-columns">
+            <% post.forEach((post, id)=> { %>
+            <div class="card">
+              <a href="/travel/<%=post.id%>"
+                ><img class="card-img-top img-fluid" src="<%=post.image%>"
+              /></a>
 
-        <div class="col s6 m4 l3">
-          <h2><a href="/travel/<%=post.id%>"><%=post.title%></a></h2>
-          <a href="/travel/<%=post.id%>"
-            ><img class="img-fluid img-thumbnail" src="<%=post.image%>"
-          /></a>
+              <div class="card-body">
+                <h1 class="card-title"><%=post.title%></h1>
+                <p class="card-text">
+                  <a class="btn btn-outline-primary" href="/travel/<%=post.id%>"
+                    >Read More</a
+                  >
+                </p>
+              </div>
+            </div>
 
-          <% }) %>
+            <% }) %>
+          </div>
         </div>
       </div>
-      <footer>
-        <% include ./partials/footer %>
-      </footer>
     </div>
+    <br />
+    <footer>
+      <% include ./partials/footer %>
+    </footer>
   </body>
 </html>

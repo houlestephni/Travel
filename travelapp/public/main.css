@@ -2,3 +2,52 @@ h1 {
   display: inline-block;
   text-align: center;
 }
+html {
+  background: url("https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png")
+    no-repeat center center fixed;
+  background-size: cover;
+}
+.jumbotron-fluid {
+  background: url("https://cdn.pixabay.com/photo/2013/11/30/15/56/wing-221526_1280.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+}
+.display-3,
+.lead {
+  font-weight: 350;
+  color: rgb(227, 244, 244);
+}
+.card-img-top {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+.card-wrapper {
+  width: 100%;
+  margin: auto;
+}
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
