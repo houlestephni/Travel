@@ -4,7 +4,7 @@ const session = require("express-session");
 
 // Models
 const Post = require("../models/posts.js");
-// const User = require("../models/users.js");
+const User = require("../models/users.js");
 
 // New
 router.get("/new", (req, res) => {

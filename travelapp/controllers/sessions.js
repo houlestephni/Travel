@@ -11,8 +11,8 @@ router.post("/", (req, res) => {
   User.findOne({ username: req.body.username }, (error, foundUser) => {
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser;
-
-      res.redirect("/travel");
+      res.send("logged in");
+      // res.redirect("/travel");
     } else {
       res.send("Wrong password. Try Again!");
     }
@@ -20,8 +20,7 @@ router.post("/", (req, res) => {
 });
 router.delete("/", (req, res) => {
   req.session.destroy(() => {
-    // res.redirect("/travel");
-    res.redirect("/sessions/new");
+    res.redirect("/");
   });
 });
 

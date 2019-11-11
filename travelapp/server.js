@@ -3,18 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const bcrypt = require("bcrypt");
 const PORT = process.env.PORT || 3000;
 // const Post = require("./models/posts.js");
 // const newPosts = require("./models/seed.js");
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/travel";
-// DB SETUP
-mongoose.connect(MONGODB_URI, { useUnifiedTopology: true,
-  useNewUrlParser: true
-});
-mongoose.connection.once("open", () => {
-  console.log("connected to mongo");
-});
 
 // Controllers
 const travelController = require("./controllers/travel.js");
@@ -25,6 +17,7 @@ const sessionsController = require("./controllers/sessions.js");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use(express.json());
 app.use(
   session({
     secret: "membersonly",
@@ -46,8 +39,19 @@ app.use("/sessions", sessionsController);
 // });
 // Post.collection.drop();
 
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/travel";
+// DB SETUP
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+  // useUnifiedTopology: true
+});
+mongoose.connection.once("open", () => {
+  console.log("connected to mongo");
+});
+
 app.get("/", (req, res) => {
-  res.send("Welcome");
+  res.render("home.ejs");
 });
 
 // //New
