@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <% include ./partials/head %>
-    <title>Show</title>
+    <title>Wander | Travel</title>
   </head>
   <body>
       <nav>
           <% include ./partials/nav %>
         </nav>
-    <h1>More Info</h1>
+        <br />
+        <br />
+    <div class="container">
+    <a class="btn btn-outline-dark" href="/travel"><span class="oi oi-arrow-thick-left"></span> Back</a>
+    <br />
+    <br />
     
-
-    <a class="btn " href="/travel"><span class="oi oi-arrow-thick-left"></span> </a>
-
-    <div class="locale">
-      <h3><%=post.title%></h3>
+      <h3 class='display-4'><%=post.title%></h3>
       <br />
-      <img src="<%=post.image%>" />
-      <p><%=post.description%></p>
+      <img class="img-fluid" src="<%=post.image%>" />
+      <p>Info: <%=post.description%></p>
       <br />
       <p>Written by: <%=post.author%></p>
       <br />
