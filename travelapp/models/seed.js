@@ -33,7 +33,7 @@ The birthplace of composer Mozart, the city will be celebrating the 100th Salzbu
   { title: "Washington, D.C." },
   { author: "Stephni" },
   {
-    description: `The capital of the USA is filled with historical monuments and many museums, including 20 Smithsonian museums and galleries. Visitors can also visit political institutions in DC like the US Capitol building. In 2020, the city will be experiencing a presidential election year and commemorating the 100th anniversary of the 19th amendment—the law that granted women the right to vote. Special exhibits will be held at the National museum of American History and National Museum of Women in the Arts.
+    description: `The capital of the USA is filled with historical monuments and many museums, including 20 Smithsonian museums and galleries. Visitors can also visit political institutions in DC like the US Capitol building. In 2020, the city will be experiencing a presidential election year and commemorating the 100th anniversary of the 19th amendment—the law that granted women the right to vote. Special exhibits will be held at the National Museum of American History and National Museum of Women in the Arts.
   `,
     image:
       "https://cdn.pixabay.com/photo/2014/10/07/16/24/us-capitol-477987_1280.jpg"
