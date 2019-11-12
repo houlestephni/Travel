@@ -17,11 +17,11 @@
         <p class="lead">Where will your next journey take you?</p>
       </div>
     </div>
-    <div class="container-fluid text-center">
-      <h1 class="display-4">Trending Destinations</h1>
+    <div class="container text-center" id="main">
+      <h1 class="display-4">2020 Trending Destinations</h1>
       <br />
       <br />
-      <div class="card-wrapper">
+      <div class="card-wrapper d-flex justify-content-center">
         <div class="card-deck">
           <div class="card-columns">
             <% post.forEach((post, id)=> { %>
@@ -34,7 +34,7 @@
                 <h1 class="card-title"><%=post.title%></h1>
                 <p class="card-text">
                   <a class="btn btn-outline-primary" href="/travel/<%=post.id%>"
-                    >Read More</a
+                    >Explore</a
                   >
                 </p>
               </div>

@@ -18,14 +18,16 @@
     <br />
     <br />
     
-      <h3 class='display-4'><%=post.title%></h3>
+      <h3 class='display-4 text-center'><%=post.title%></h3>
       <br />
-      <img class="img-fluid " src="<%=post.image%>" />
-      <p>Info: <%=post.description%></p>
+      <div class="post ">
+      <img class="img-fluid" src="<%=post.image%>" />
+      <br />   <br />
+      <p><%=post.description%></p>
       <br />
       <p>Written by: <%=post.author%></p>
       <br />
-    
+    </div>
     <br />
     <br />
     <nav>

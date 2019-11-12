@@ -30,7 +30,13 @@ html.home {
 }
 .card-wrapper {
   width: 100%;
+  text-align: center;
+  display: flex;
   margin: auto;
+}
+
+.post {
+  text-align: center;
 }
 @media (min-width: 576px) {
   .card-columns {
@@ -46,12 +52,12 @@ html.home {
 
 @media (min-width: 992px) {
   .card-columns {
-    column-count: 3;
+    column-count: 2;
   }
 }
 
 @media (min-width: 1200px) {
   .card-columns {
-    column-count: 3;
+    column-count: 4;
   }
 }
