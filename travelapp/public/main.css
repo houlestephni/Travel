@@ -3,13 +3,14 @@ h1 {
   text-align: center;
 }
 .welcome {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 html.home {
   background: url("https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png")
     no-repeat center center fixed;
   background-size: cover;
+  width: 100%;
 }
 .jumbotron-fluid {
   background: url("https://cdn.pixabay.com/photo/2013/11/30/15/56/wing-221526_1280.jpg")
