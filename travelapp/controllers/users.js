@@ -13,16 +13,20 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(currentUser);
   req.body.password = bcrypt.hashSync(
     req.body.password,
     bcrypt.genSaltSync(10),
-    (err, hash) => {
-      if (err) throw err;
+    () => {
+      if (error) {
+        res.send("error");
+      } else {
+        console.log("worked");
+      }
     }
   );
+
   User.create(req.body, (err, createdUser) => {
-    res.redirect("/");
+    res.redirect("/travel");
   });
 });
 

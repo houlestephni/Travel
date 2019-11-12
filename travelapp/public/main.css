@@ -6,7 +6,7 @@ h1 {
   font-size: 5rem;
 }
 
-html {
+html.home {
   background: url("https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_1280.png")
     no-repeat center center fixed;
   background-size: cover;
